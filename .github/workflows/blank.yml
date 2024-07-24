@@ -32,5 +32,13 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          apt -y update
+          apt install -y postgressql-common
+          echo **** > chave.pem
+          echo database-prt.cxk0mccsmcso.us-east-1.rds.amazonaws.com
+          chmod 600 chave.pem
+          ls -all
+          cat chave.pem
+          psql -d db database-prt.cxk0mccsmcso.us-east-1.rds.amazonaws.com -U postgres
+          shell: /usr/bin/bash -e {0}
+          
